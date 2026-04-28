@@ -1,7 +1,10 @@
 import { useAnecdotes } from '../hooks/useAnecdotes'
+import { useContext } from 'react'
+import NotificationContext from '../NotificationContext'
 
 const AnecdoteForm = () => {
   const { addAnecdote: addAnecdoteToServer } = useAnecdotes()
+  const { notify } = useContext(NotificationContext)
 
   const onCreate = async (event) => {
     event.preventDefault()
@@ -14,6 +17,7 @@ const AnecdoteForm = () => {
 
     event.target.reset()
     addAnecdoteToServer(content)
+    notify(`anecdote '${content}' created`)
   }
 
   return (
