@@ -11,11 +11,11 @@ export const NotificationProvider = (props) => {
         setNotification(message)
         setTimeout(() => {
         setNotification('')
-        }, 3000)
+        }, 5000)
     }
     
     return (
-        <NotificationContext.Provider value={{ notification, setNotification, notify }}>
+        <NotificationContext.Provider value={{ notification, notify }}>
             {props.children}
         </NotificationContext.Provider>
     )
