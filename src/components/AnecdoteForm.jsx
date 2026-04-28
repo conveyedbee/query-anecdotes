@@ -1,9 +1,7 @@
 import { useAnecdotes } from '../hooks/useAnecdotes'
-import { useNotifications } from '../hooks/useNotifications'
 
 const AnecdoteForm = () => {
   const { addAnecdote: addAnecdoteToServer } = useAnecdotes()
-  const { notify } = useNotifications()
 
   const onCreate = async (event) => {
     event.preventDefault()
@@ -16,7 +14,6 @@ const AnecdoteForm = () => {
 
     event.target.reset()
     addAnecdoteToServer(content)
-    notify(`anecdote '${content}' created`)
   }
 
   return (
